@@ -145,9 +145,11 @@ set colorcolumn=+0
 set cmdheight=1									" The height of commandbar "
 set laststatus=2								" Alwasy Hide the statusline "
 set statusline=									" Initialize Statusline "
-set statusline+=[%{'file:\ '}%f]%m%r%h%w%{'--'}[%{'row='}%l,%{'\ col='}%v]%{'--'}[%{'ratio:\ '}%p%%]
-set statusline+=%{'--'}[%{'ffs='}%{&fileformat}]%{'--'}[%{'fencs='}%{&encoding}]%{'--'}
-set statusline+=[%{'time:\ '}%{strftime(\"%y/%m/%d\ %H:%M:%S\")}]
+set statusline+=[%F]%m%r%h%w%{'-'}[%{'row='}%l,%{'col='}%v]%{'-'}[%p%%]
+"set statusline+=[%{'file:\ '}%F]%m%r%h%w%{'-'}[%{'row='}%l,%{'col='}%v]%{'-'}[%{'ratio:'}%p%%]
+set statusline+=%{'-'}[%{&fileformat}]%{'-'}[%{&encoding}]%{'-'}
+"set statusline+=%{'-'}[%{'ffs='}%{&fileformat}]%{'-'}[%{'fencs='}%{&encoding}]%{'-'}
+set statusline+=[%{strftime(\"%m/%d\ %H:%M:%S\")}]
 "let g:Powerline_colorscheme='solarized256'
 
 """""""""" Folding """"""""""
