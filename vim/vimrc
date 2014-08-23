@@ -106,7 +106,8 @@ call vundle#end()
 set history=1000								" How many commonds to remember "
 set selection=exclusive							" Use mouse anywhere "
 set mouse=a										" Enable mouse all the time "
-set mousemodel=popup							" ???? "
+set ttymouse=xterm2
+set mousemodel=popup
 set selectmode=mouse,key						" Selectmode "
 set sessionoptions+=resize						" Keep Windows Size "
 set nobackup									" No Auto-Backup "
@@ -264,8 +265,10 @@ match TabEOF /\t\+$/
 " Select the Whole "
 map <C-A> <Esc>ggVG
 " Fast Edit .vimrc "
-noremap <Leader>e :vsplit ~/.vimrc<CR>
-map <silent> <Leader>v :source ~/.vimrc<CR>
+nnoremap <Leader>ev <ESC>:tabnew ~/.vimrc<CR>
+nnoremap <Leader>eb <ESC>:tabnew $HOME/.bash_aliases<CR>
+nnoremap <Leader>et <ESC>:tabnew $HOME/.tmux.conf<CR>
+
 nmap 1b 0
 nmap 1e $
 """ Paste Related
@@ -280,7 +283,11 @@ nnoremap s <ESC>:w!<cr>
 nmap <SPACE> :
 nmap <SPACE><SPACE> ::
 nmap :: :!
-imap <silent> <C-D><C-D> <C-R>=strftime("Modified Time: %Y-%m-%d %p %H:%M:%S")<cr>
+imap <silent> <C-D><C-D> <C-R>=strftime("Modified:  %Y-%m-%d %p %H:%M:%S")<cr>
+" Fast Replacement
+noremap <Leader><Leader> :%s//g<Left><Left>
+"" noremap <Leader>' :%s//cg<Left><Left><Left>
+"nnoremap <Leader>
 
 """"""" Moving Windows """""""
 noremap <C-d> <C-W>j
@@ -299,7 +306,7 @@ nnoremap <Leader>bp <ESC>:bprevious<CR>
 " Maxium of Opened Tabs "
 set tabpagemax=30
 " Open a New Tab under Current Directory "
-nnoremap <C-TAB> <ESC>:tabnew .<cr>
+nnoremap <C-T> <ESC>:tabnew .<cr>
 " Close Current Tab "
 nnoremap tc <ESC>:tabclose<cr>
 " Move to the Next Tab "
@@ -445,7 +452,7 @@ let g:NERDTree_title='NERDTree'
 let g:NERDTreeMapToggleZoom='a'
 let g:NERDTreeMapToggleHidden='h'
 map <Leader>nt :NERDTreeToggle<CR>
-"imap <F3> <ESC>:NERDTreeToggle<CR>
+imap <F3> <ESC>:NERDTreeToggle<CR>
 
 """"""""""""""" BufExplorer """"""""""""
 "noremap <Leader>o :<ECS>BufExplorer<CR>
@@ -454,11 +461,33 @@ let g:bufExplorerFindActive=1
 
 """""""""""" NERD_Commenter """"""""""""
 " plugin - NERD_commenter.vim   注释代码用的，
-" [count],cc 光标以下count行逐行添加注释(7,cc)
-" [count],cu 光标以下count行逐行取消注释(7,cu)
-" [count],cm 光标以下count行尝试添加块注释(7,cm)
-" ,cA 在行尾插入 /* */,并且进入插入模式。 这个命令方便写注释。
-" 注：count参数可选，无则默认为选中行或当前行
+" [count]<Leader>cc
+"		Comment out the current count lines or text selected in visual mode
+" [count]<Leader>cn
+"		Comment out the current count lines or text selected in visual
+"		mode but forcing nesting
+" [count]<Leader>cm
+"		Comment following count lines using only one set of multipart delimiters
+" [count]<Leader>c<space>
+"		Toogles the comment state of the selected lines. Comment lines if not
+"		not commented, and vice versa.
+" [count] <Leader>cs
+"		Comment out the selected lines in a sexily way
+" [count]<Leader>cu
+"		Uncomment count lines from current line one by one
+" [count]<Leader>cy
+"		Yank select lines and then comment them.
+" <Leader>cA
+"		Adds comment delimeters to the end of line and goes into insert mode
+"		between them.
+" <Leader>ca
+"		Switches to the alternative set of delimeters
+" [count]<Leader>cb
+"		Comment selected lines with the delimeters aligned down both sides, but
+"		when uncommented, there would some trailing space at end of selected lines
+" [count]<Leader>cl
+"		Comment selected lines with the delimeters aligned left side
+
 let NERDSpaceDelims=1       " Leave a space between code and comment
 let NERDCompactSexyComs=1   " More beautiful when commenting many lines
 
@@ -477,7 +506,6 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " plugin -- checksyntax.vim
 "-----------------------------------------------------------------
 let g:checksyntax_auto = 0 "
-
 " ============>> AutoTags <<========== "
 
 " ===========>> Auto-Pairs <<========== "
