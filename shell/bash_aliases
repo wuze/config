@@ -10,7 +10,7 @@ alias make='make -j4'
 alias sb='sudo reboot'
 alias c='clear'
 alias e='exit'
-alias ls='ls --color=always -G'
+alias ls='ls -G'
 alias ll='ls -lh'
 alias sl='ls'
 alias l='ls'
@@ -50,17 +50,16 @@ alias iconvgu='iconv -f gb18030 -t utf-8'
 function gb2utf(){
 	set -o nounset
 	dir=$1
-	if [ $dir == "" ]; then 
+	if [ $dir == "" ]; then
 		echo "Usage: "
 		echo "        g2u directory"
 		echo "    This is a script file to convert gb18030 files to utf-8 files in batches. "
 		exit 0
 	fi
-	
-	if [ -d $dir ]; then 
+	if [ -d $dir ]; then
 		mkdir -p $dir/original/
 		cd $dir
-		for name in *.txt; do 
+		for name in *.txt; do
 			tmp=utf-`basename "$name"`
 			iconv -f gb18030 -t utf-8 "$name" >"$tmp"
 			mv "$name" original/"$name"
@@ -72,4 +71,3 @@ function gb2utf(){
 	fi
 }
 ###---------------------------------------------------###
-clear
