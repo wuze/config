@@ -10,7 +10,11 @@ alias make='make -j4'
 alias sb='sudo reboot'
 alias c='clear'
 alias e='exit'
-alias ls='ls -G'
+if [[ `uname` == "Darwin" ]]; then
+	alias ls='ls -G'
+else
+	alias ls='ls --color=always -G'
+fi
 alias ll='ls -lh'
 alias sl='ls'
 alias l='ls'
