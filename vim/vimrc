@@ -155,7 +155,7 @@ set statusline+=[%{strftime(\"%m/%d\ %H:%M:%S\")}]
 """""""""" Folding """"""""""
 set foldenable									" Enable Code Folded // fen"
 set foldmethod=syntax							" Fold Method "
-set foldclose=all
+"set foldclose=all
 
 """""""""" Search """"""""""""
 set showmatch									" Highlight the Matching Bracket "
