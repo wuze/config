@@ -6,7 +6,7 @@ export PATH=/usr/local/bin:$PATH:$HOME/Bin:$HOME/Bin/bash:/usr/local/root/bin/
 # PKGCONFIG
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 # Command Aliases
-alias make='make -j4'
+# alias make='make -j4'
 alias sb='sudo reboot'
 alias c='clear'
 alias e='exit'
