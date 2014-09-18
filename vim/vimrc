@@ -455,7 +455,7 @@ let g:NERDTree_title='NERDTree'
 let g:NERDTreeMapToggleZoom='a'
 let g:NERDTreeMapToggleHidden='h'
 map <Leader>nt :NERDTreeToggle<CR>
-imap <F3> <ESC>:NERDTreeToggle<CR>
+noremap <F3> <ESC>:NERDTreeToggle<CR>
 
 """"""""""""""" BufExplorer """"""""""""
 "noremap <Leader>o :<ECS>BufExplorer<CR>
@@ -592,7 +592,7 @@ autocmd FileType tex set sw=2
 let g:Tex_CompileRule_dvi='xelatex -src-specials -interaction=nonstopmode $*'
 let g:Tex_CompileRule_pdf='xelatex -src-specials -interaction=nonstopmode $*'
 autocmd FileType tex map <Leader>t <ESC>:w<CR> <Leader>ll<CR>
-autocmd FileType tex nmap <F3> <ESC>:w<CR> <Leader>lv<CR>
+"autocmd FileType tex nmap <F3> <ESC>:w<CR> <Leader>lv<CR>
 autocmd FileType tex nmap <Tab> <C-j>
 autocmd FileType tex imap <Tab> <C-j>
 autocmd FileType tex vmap <Tab> <C-j>
