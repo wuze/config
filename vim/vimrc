@@ -520,9 +520,9 @@ autocmd FileType tex let g:AutoPairs={'(':')','[':']','{':'}','"':'"',"'":"'"}
 " Control+o x to delete the paren.
 
 " =========>> AutoPreview <<========== "
-let g:AutoPreview_enabled=1
-let g:AutoPreview_allowed_filetypes=["c","cpp","h","java","hpp","C","cxx","sh","py"]
-nnoremap <F6> :AutoPreviewToggle<cr>
+let g:AutoPreview_enabled=0
+let g:AutoPreview_allowed_filetypes=["c","cpp","h","java","hpp","C","cxx","sh","py","cc","m","gp"]
+nnoremap <Leader>ap :AutoPreviewToggle<cr>
 inoremap <F6> <ESC>:AutoPreviewToggle<cr>
 set updatetime=500
 
