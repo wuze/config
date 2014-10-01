@@ -91,4 +91,13 @@ function gb2utf(){
 		exit 0
 	fi
 }
+function g2u(){
+	if [[ $# -ne 2 ]]; then
+		echo "g2u input output"
+		exit 1
+	fi
+	input=$1
+	output=$2
+	iconv -f gb18030 -t utf-8 "$input" -o "$output"
+}
 ###---------------------------------------------------###
