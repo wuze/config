@@ -54,6 +54,7 @@ Plugin 'vimwiki'
 Plugin 'yegappan/mru'
 Plugin 'gmarik/vundle'
 Plugin 'yegappan/grep'
+Plugin 'bash-support.vim',{'name':'bash-support'}
 Plugin 'darkshell/cvim'
 Plugin 'rkulla/pydiction'
 Plugin 'wesleyche/SrcExpl'
@@ -85,7 +86,6 @@ Plugin 'vim-scripts/info.vim',{'name':'info'}
 "Plugin 'davidhalter/jedi-vim',{'name':'jedi'}
 Plugin 'darkshell/schemepack',{'name':'colors'}
 Plugin 'kevinw/pyflakes-vim',{'name':'pyflakes'}
-Plugin 'bash-support.vim',{'name':'bash-support'}
 "Plugin 'perl-support.vim',{'name':'perl-support'}
 "Plugin 'vim-scripts/blogit.vim',{'name':'blogit'}
 Plugin 'basilgor/vim-autotags',{'name':'autotags'}

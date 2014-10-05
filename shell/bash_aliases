@@ -24,7 +24,8 @@ alias l='ls'
 alias ll='ls -lh'
 alias la='ls -A'
 alias gp='gnuplot'
-alias gg='g++ -std=c++11 -O2'
+alias g++='g++ -std=c++11 -O2 -Wall'
+alias clang++='clang++ -std=c++11 -O2 -Wall'
 alias md='mkdir -p'
 alias rd='rmdir'
 alias rm='rm -i'
@@ -42,7 +43,7 @@ alias octave='octave --silent'
 ####### xelatex ############
 alias rmtex='rm -rf *.aux *.lof *.lot *.out *.toc *.synctex.gz* *.log'
 ####### git aliases ########
-alias gita='git add -f * && git commit -a -m'
+alias gita='git add -f -all * && git commit -a -m'
 alias gitp='git push origin master'
 ################ Mac ########################
 if [[ `uname` == "Darwin" ]]; then
