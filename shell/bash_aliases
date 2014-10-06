@@ -43,7 +43,7 @@ alias octave='octave --silent'
 ####### xelatex ############
 alias rmtex='rm -rf *.aux *.lof *.lot *.out *.toc *.synctex.gz* *.log'
 ####### git aliases ########
-alias gita='git add -f -all * && git commit -a -m'
+alias gita='git add -f --all * && git commit -a -m'
 alias gitp='git push origin master'
 ################ Mac ########################
 if [[ `uname` == "Darwin" ]]; then
@@ -58,7 +58,7 @@ if [[ `uname` == "Darwin" ]]; then
 	alias mysqladmin='/usr/local/mysql/bin/mysqladmin'
 ########### PATH ###########
 	### QT 5.3
-	export PATH=$PATH:/usr/local/Qt/5.3/clang_64/bin
+	export PATH=$PATH:/usr/local/Qt/5.3/clang_64/bin:/usr/texbin
 	export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/Qt/5.3/clang_64/lib/pkgconfig
 	### if having python3.4
 	export PATH=/Library/Frameworks/Python.framework/Versions/3.4/bin:$PATH

@@ -1,0 +1,87 @@
+# folder & spool  
+set spoolfile = ~/.Mail/inbox/default/      # 启动mutt默认进入的邮箱
+set mbox_type = Maildir  # 设置为目录存储方式  
+set postponed = +postponed        #  
+# 退出时不在提示把信件从spool移动到的mbox文件  
+set move = no  
+# hook charset  
+charset-hook gb2312 gb2312  
+charset-hook GB2312 GB2312  
+charset-hook big5 big5  
+charset-hook !UTF-8 gbk  
+charset-hook "^us-ascii$" "utf-8"  
+# send charset  
+set send_charset="us-ascii:iso-8859-1:utf-8:gbk"  
+set rfc2047_parameters=yes  
+#Flag  
+# " "(空): 表示这封邮件不是给你的, 也就是说 To: 和 Cc: Bcc: 都没有你的地址,  
+#          很多转发的邮件, 未确认的邮件列表邮件, 垃圾邮件都有这个特征.  
+# +: 表示你是收件人(To: 是你的地址之一), 而且是唯一的收件人.  
+# T: 表示你是收件人(To: 包括了你的地址之一), 但是你不是唯一的收件人. 这是一封群体信件.  
+# C: 表示你的地址出现在 CC:, 但是你不是唯一的被抄送的人.  
+# F: 表示这封邮件是你发出去的.  
+# L: 表示这是一封你已经加入的邮件列表寄来的.  
+set to_chars=" +TCFL"  
+# 增加垃圾箱, 虽然不是很完善  
+folder-hook . 'macro index d "s$folder/trash\r"'  
+folder-hook $folder/trash 'bind index d delete-message'  
+unignore headers from: to: cc: subject date reply-to:  
+#score  
+#score "~N" +4    #新信件  
+#score "~D" -5    #有删除标记  
+#score "~O" +1    #上次没有读  
+#score "~f huiqin" +2    #来自 xxxx  
+#score "~s xxxx" + 3    #主题上有 xxxx  
+#sort  
+set sort = 'threads'  
+# 当用 thread 排序方式时, 我们对各个 thread 的相对时间顺序.  
+set sort_aux = 'reverse-last-date-received'  
+# don't confirm when appending messages to a mailbox  
+set confirmappend = no  
+# 禁止PAGE键切换到下一封信件  
+set pager_stop = yes  
+# 当行太长需要折行显示时, 按单词为边界折行, 而不是以屏幕边界为界限.  
+set smart_wrap = yes  
+# 当你在用 pager 看信件时, 在 index 留出多少行显示邮件列表?  
+set pager_index_lines = 5  
+
+# ext app to view attachment  
+set mailcap_path="~/.mailcap"  
+# 当外部程序退出时, 是否要求用户按一个键才返回  
+set wait_key=yes  
+# alias  
+set alias_file = ~/.mutt/.mutt.alias  
+source ~/.mutt/.mutt.alias  
+# Attachment  
+set attach_format = "%u%D%I %t%4n %T%.40d%> [%.7m/%.10M, %.6e%?C?, %C?, %s]"  
+set attach_sep = "\n"  
+set attach_split = yes  
+alternative_order text/enriched text/plain text application/postscript image/*  
+  
+
+# key binding  
+macro index  ,gp                "c=postponed\r"  
+macro index  ,gp                "c=postponed\r"  
+macro index  ,gs                "c=sent\r"  
+macro index  ,gs                "c=sent\r"  
+macro index  ,gr                "c=trash\r"  
+macro index  ,gr                "c=trash\r"  
+macro index,pager ,G            "!~/.getmail/getmail\n"   "Invoke getmail"  
+macro index,pager ,ebt          ":set from=tge3636@126.com\r:set edit_headers=yes\r:set realname=NuoErlz\r"  
+macro index,pager ,ebn          ":set from=nuoerlz@gmail.com\r:set edit_headers=yes\r:set realname=erlz.nuo\r"  
+macro index,pager ,ehd          ":set edit_headers=yes\r"  
+macro index,pager ,ehn          ":set edit_headers=no\r"  
+macro index,pager ,gdf          "c=inbox/default\r:set from=nuoerlz@gmail.com\r:set edit_headers=no\r:set realname=\"erlz.nuo\"\r"  
+macro index,pager ,gic          "c=inbox/nuoerlz_gmail/list_cpp\r:set from=nuoerlz@gmail.com\r:set edit_headers=no\r:set realname=\"erlz.nuo\"\r"  
+macro index,pager ,gid          "c=inbox/nuoerlz_gmail/default\r:set from=nuoerlz@gmail.com\r:set edit_headers=no\r:set realname=\"erlz.nuo\"\r"  
+macro index,pager ,gie          "c=inbox/nuoerlz_gmail/list_eng\r:set from=nuoerlz@gmail.com\r:set edit_headers=no\r:set realname=\"erlz.nuo\"\r"  
+macro index,pager ,gif          "c=inbox/nuoerlz_gmail/list_fedora\r:set from=nuoerlz@gmail.com\r:set edit_headers=no\r:set realname=\"erlz.nuo\"\r"  
+macro index,pager ,gig          "c=inbox/nuoerlz_gmail/news_G2G\r:set from=nuoerlz@gmail.com\r:set edit_headers=no\r:set realname=\"erlz.nuo\"\r"  
+macro index,pager ,gij          "c=inbox/nuoerlz_gmail/list_joke\r:set from=nuoerlz@gmail.com\r:set edit_headers=no\r:set realname=\"erlz.nuo\"\r"  
+macro index,pager ,gim          "c=inbox/nuoerlz_gmail/list_vim\r:set from=nuoerlz@gmail.com\r:set edit_headers=no\r:set realname=\"erlz.nuo\"\r"  
+macro index,pager ,gis          "c=inbox/nuoerlz_gmail/list_shlug\r:set from=nuoerlz@gmail.com\r:set edit_headers=no\r:set realname=\"erlz.nuo\"\r"  
+macro index,pager ,giv          "c=inbox/nuoerlz_gmail/list_devel\r:set from=nuoerlz@gmail.com\r:set edit_headers=no\r:set realname=\"erlz.nuo\"\r"  
+macro index,pager ,gld          "c=inbox/lcy3636_126/default\r:set from=lcy3636@126.com\r:set edit_headers=no\r:set realname=NuoErlz\r"  
+macro index,pager ,gtd          "c=inbox/tge3636_126/default\r:set from=tge3636@126.com\r:set edit_headers=no\r:set realname=NuoErlz\r"  
+macro index,pager,generic ,sm   ":source $HOME/.muttrc\r"  
+macro index,pager,generic ,vm   "!xterm -bg wheat -e gvim $HOME/.muttrc\r"
