@@ -41,7 +41,7 @@ alias vibash='vi ~/.bash_aliases'
 alias make='make -j4'
 alias octave='octave --silent'
 ####### xelatex ############
-alias rmtex='rm -rf *.aux *.lof *.lot *.out *.toc *.synctex.gz* *.log'
+alias rmtex='rm -rf *.aux *.lof *.lot *.out *.toc *.synctex.gz* *.log *-inc.eps'
 ####### git aliases ########
 alias gita='git add -f --all * && git commit -a -m'
 alias gitp='git push origin master'

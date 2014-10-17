@@ -90,6 +90,7 @@ Plugin 'kevinw/pyflakes-vim',{'name':'pyflakes'}
 "Plugin 'vim-scripts/blogit.vim',{'name':'blogit'}
 Plugin 'basilgor/vim-autotags',{'name':'autotags'}
 Plugin 'docunext/closetag.vim',{'name':'closetag'}
+"Plugin 'hallison/vim-markdown',{'name':'markdown'}
 Plugin 'plasticboy/vim-markdown',{'name':'markdown'}
 Plugin 'vim-scripts/fortran.vim', {'name':'fortran'}
 "Plugin 'vim-scripts/haskell.vim',{'name':'haskell-syntax'}
