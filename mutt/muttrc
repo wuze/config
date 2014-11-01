@@ -24,7 +24,7 @@ set timeout=600			# Shortcut timeout
 
 ###########################################################
 ## Alternate mail-address
-alternates "byujiang@hotmail.com|byujiang@gmail.com|byujiang@qq.com|byujiang@163.com"
+alternates "xx@xx|xx@xx|xx@xx|xx@xx"
 auto_view text/html		# View html-mail better
 set editor="vim"		# Message Editor
 set edit_headers=no		# Edit mail header in editor or not
@@ -33,7 +33,7 @@ set edit_headers=no		# Edit mail header in editor or not
 set envelope_from=yes
 set encode_from=yes
 set use_from=yes		# Automatically generate from address
-set from=byujiang@hotmail.com	# Default from address
+set from=	# Default from address
 
 ## Reply Configuration
 set reply_to=yes		# Using Original reply-to especially in a mail list.

@@ -60,10 +60,14 @@ if [[ `uname` == "Darwin" ]]; then
 	alias mysqladmin='/usr/local/mysql/bin/mysqladmin'
 ########### PATH ###########
 	### QT 5.3
-	export PATH=$PATH:/usr/local/Qt/5.3/clang_64/bin:/usr/texbin
+	export PATH=$PATH:/usr/local/Qt/5.3/clang_64/bin
 	export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/Qt/5.3/clang_64/lib/pkgconfig
 	### if having python3.4
 #	export PATH=/Library/Frameworks/Python.framework/Versions/3.4/bin:$PATH
+	### qtgrace
+	if [[ -d /Applications/QMBF.app/ ]]; then
+		export PATH=$PATH:/Applications/QMBF.app/Contents/MacOS
+	fi
 	### if having cmake.app
 	export PATH=$PATH:/Applications/CMake.app/Contents/bin
 #	export PATH=$PATH:$HOME/Bin/gnuplot/bin
@@ -78,7 +82,7 @@ function gb2utf(){
 		echo "Usage: "
 		echo "        g2u directory"
 		echo "    This is a script file to convert gb18030 files to utf-8 files in batches. "
-		exit 0
+		return
 	fi
 	if [ -d $dir ]; then
 		mkdir -p $dir/original/
@@ -91,16 +95,17 @@ function gb2utf(){
 		done
 	else
 		echo "Directory Doesn't Exist!!! Check the directory you input, ^<>^ !!!"
-		exit 0
+		return
 	fi
+	cd ..
 }
 function g2u(){
 	if [[ $# -ne 2 ]]; then
 		echo "g2u input output"
-		exit 1
+		return
 	fi
 	input=$1
 	output=$2
-	iconv -f gb18030 -t utf-8 "$input" -o "$output"
+	iconv -f gb18030 -t utf-8 "$input" > "$output"
 }
 ###---------------------------------------------------###
