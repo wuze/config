@@ -86,6 +86,7 @@ Plugin 'vim-scripts/info.vim',{'name':'info'}
 "Plugin 'davidhalter/jedi-vim',{'name':'jedi'}
 Plugin 'darkshell/schemepack',{'name':'colors'}
 Plugin 'kevinw/pyflakes-vim',{'name':'pyflakes'}
+Plugin 'vim-pandoc/vim-pandoc',{'name':'pandoc'}
 "Plugin 'perl-support.vim',{'name':'perl-support'}
 "Plugin 'vim-scripts/blogit.vim',{'name':'blogit'}
 Plugin 'basilgor/vim-autotags',{'name':'autotags'}
@@ -97,8 +98,9 @@ Plugin 'vim-scripts/fortran.vim', {'name':'fortran'}
 Plugin 'vim-scripts/bufexplorer.zip',{'name':'bufexplorer'}
 "Plugin 'vim-scripts/visualMarks.vim',{'name':'visualmarks'}
 "Plugin 'Twinside/vim-syntax-haskell-cabal',{'name':'cabal'}
-Plugin 'vim-scripts/DoxygenToolkit.vim',{'name':'doxygentoolkit'}
+Plugin 'vim-pandoc/vim-pandoc-syntax',{'name':'pandoc-syntax'}
 "Plugin 'vim-scripts/indenthaskell.vim',{'name':'haskell-indent'}
+"Plugin 'vim-scripts/DoxygenToolkit.vim',{'name':'doxygentoolkit'}
 call vundle#end()
 "------------------------------- End of Vundle --------------------------------"
 
@@ -197,18 +199,14 @@ else
 endif
 "colorscheme molokai					" Color Scheme "
 "colorscheme blacksea
-"colorscheme adaryn
 "colorscheme adrian
 "colorscheme aiseered
 "colorscheme anotherdark
 "colorscheme astroboy
-"colorscheme asu1dark
 "colorscheme autumn
-"colorscheme baycomb
 "colorscheme blackbeauty
 "colorscheme camo
-"colorscheme motus
-"colorscheme vividchalk
+colorscheme vividchalk
 "colorscheme zenburn
 "colorscheme wuye "good
 "colorscheme golden

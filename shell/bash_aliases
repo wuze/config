@@ -15,7 +15,7 @@ alias e='exit'
 if [[ `uname` == "Darwin" ]]; then
 	alias ls='ls -G'
 else
-	alias ls='ls --color=always -G'
+	alias ls='ls --color=auto -G'
 fi
 #tinyscheme
 alias ..='cd ..'
@@ -52,6 +52,26 @@ if [[ `uname` == "Darwin" ]]; then
 	alias show='defaults write com.apple.finder AppleShowAllFiles -bool true'
 	alias hide='defaults write com.apple.finder AppleShowAllFiles -bool false'
 	alias updatedb='sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist'
+####### networksetup #######
+	### turn off ipv4 of wifi
+	alias socksoff='sudo networksetup -setsocksfirewallproxystate Wi-Fi off'
+	alias socksset='sudo networksetup -setsocksfirewallproxy Wi-Fi localhost 7070'
+	alias sockson='sudo networksetup -setsocksfirewallproxystate Wi-Fi on'
+	#alias v4off='sudo networksetup -setv4off Wi-Fi'
+	function v4off(){
+		sudo networksetup -setv4off Wi-Fi
+		sudo networksetup -setdnsservers Wi-Fi 2001:778::37 2001:4860:4860::8888
+		#sudo networksetup -setdnsservers Wi-Fi 2001:4860:4860::8888
+		socksset
+		# ssh -D 7070 dark@darkshell.me
+	}
+	#alias v4on='sudo networksetup -setdhcp Wi-Fi'
+	### turn on ipv4 of wifi
+	function v4on(){
+		sudo networksetup -setdhcp Wi-Fi
+		sudo networksetup -setdnsservers Wi-Fi Empty
+		sucksoff
+	}
 ########### ftp ############
 	alias ftpon='sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist'
 	alias ftpoff='sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist'

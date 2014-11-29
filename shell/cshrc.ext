@@ -1,0 +1,4 @@
+### alias
+alias c 'clear'
+alias sl 'ls'
+alias e 'exit'
