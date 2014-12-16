@@ -42,6 +42,7 @@ alias vimrc='vi ~/.vimrc'
 alias vibash='vi ~/.bash_aliases'
 alias make='make -j4'
 alias octave='octave --silent'
+alias qs='ps -ef|grep -v grep|grep'
 ####### xelatex ############
 alias rmtex='rm -rf *.aux *.lof *.lot *.out *.toc *.synctex.gz* *.log *-inc.eps'
 ####### git aliases ########
@@ -52,25 +53,21 @@ if [[ `uname` == "Darwin" ]]; then
 	alias show='defaults write com.apple.finder AppleShowAllFiles -bool true'
 	alias hide='defaults write com.apple.finder AppleShowAllFiles -bool false'
 	alias updatedb='sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist'
-####### networksetup #######
-	### turn off ipv4 of wifi
-	alias socksoff='sudo networksetup -setsocksfirewallproxystate Wi-Fi off'
-	alias socksset='sudo networksetup -setsocksfirewallproxy Wi-Fi localhost 7070'
-	alias sockson='sudo networksetup -setsocksfirewallproxystate Wi-Fi on'
-	#alias v4off='sudo networksetup -setv4off Wi-Fi'
+######### Wi-Fi ############
+	if [[ -e ~/.socksrc ]]; then
+		source ~/.socksrc
+	fi
 	function v4off(){
 		sudo networksetup -setv4off Wi-Fi
-		sudo networksetup -setdnsservers Wi-Fi 2001:778::37 2001:4860:4860::8888
-		#sudo networksetup -setdnsservers Wi-Fi 2001:4860:4860::8888
-		socksset
-		# ssh -D 7070 dark@darkshell.me
+		sudo networksetup -setdnsservers Wi-Fi 2001:4860:4860::8888 8.8.8.8
+		ssh -6 -N -D 7070  darkshell 1>/dev/null &
+		sudo networksetup -setsocksfirewallproxystate Wi-Fi on
+		sudo networksetup -setsocksfirewallproxy Wi-Fi localhost 7070
 	}
-	#alias v4on='sudo networksetup -setdhcp Wi-Fi'
-	### turn on ipv4 of wifi
 	function v4on(){
 		sudo networksetup -setdhcp Wi-Fi
 		sudo networksetup -setdnsservers Wi-Fi Empty
-		sucksoff
+		sudo networksetup -setsocksfirewallproxystate Wi-Fi off
 	}
 ########### ftp ############
 	alias ftpon='sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist'
@@ -129,3 +126,13 @@ function g2u(){
 	iconv -f gb18030 -t utf-8 "$input" > "$output"
 }
 ###---------------------------------------------------###
+if [[ -e ~/.testrc ]]; then
+	source ~/.testrc
+fi
+
+###---------------------------------------------------###
+# xqcd and x settings
+if [[ -x $HOME/Bin/xqcd/x/bin/xqcdio.calc ]]; then
+	export xpath="$HOME/Bin/xqcd/x/"
+	export PATH=$PATH:$HOME/Bin/xqcd/x/bin
+fi

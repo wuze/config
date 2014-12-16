@@ -1,0 +1,11 @@
+##############################################
+# This config file is for sockslink, providing
+# some essential varables needed by sockslink.
+
+SOCKSFLAG=true
+host=darkshell.me
+username="dark"
+port=7070
+v4=false
+v6=true
+nologin=true
