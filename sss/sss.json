@@ -1,0 +1,13 @@
+{
+"server":"23.88.59.167",
+"server_port":8000,
+"local_address":"127.0.0.1",
+"port_password":{
+"8800":"cswslcydszdsxc",
+"8801":"acrossthegreatwall"
+},
+"timeout":300,
+"method":"aes-256-cfb",
+"fast_open":false,
+"workers":1
+}

@@ -76,9 +76,9 @@ if [[ `uname` == "Darwin" ]]; then
 	alias mysql='/usr/local/mysql/bin/mysql'
 	alias mysqladmin='/usr/local/mysql/bin/mysqladmin'
 ########### PATH ###########
-	### QT 5.3
-	export PATH=$PATH:/usr/local/Qt/5.3/clang_64/bin
-	export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/Qt/5.3/clang_64/lib/pkgconfig
+	### QT 5.4
+	export PATH=$PATH:/usr/local/Qt/5.4/clang_64/bin
+	export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/Qt/5.4/clang_64/lib/pkgconfig
 	### if having python3.4
 #	export PATH=/Library/Frameworks/Python.framework/Versions/3.4/bin:$PATH
 	### qtgrace
@@ -129,6 +129,11 @@ if [[ -e ~/.testrc ]]; then
 	source ~/.testrc
 fi
 
+function ssstart(){
+	config=$1
+	test -e $config || return
+	nohup sslocal -q -c $config >/dev/null 2>&1 ^
+}
 ###---------------------------------------------------###
 # xqcd and x settings
 if [[ -x $HOME/Bin/xqcd/x/bin/xqcdio.calc ]]; then
