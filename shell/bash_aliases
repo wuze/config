@@ -62,7 +62,7 @@ if [[ `uname` == "Darwin" ]]; then
 		sudo networksetup -setdnsservers Wi-Fi 2001:4860:4860::8888 8.8.8.8
 		ssh -6 -N -D 7070  darkshell 1>/dev/null &
 		sudo networksetup -setsocksfirewallproxystate Wi-Fi on
-		sudo networksetup -setsocksfirewallproxy Wi-Fi localhost 7070
+		sudo networksetup -setsocksfirewallproxy Wi-Fi localhost 1080
 	}
 	function v4on(){
 		sudo networksetup -setdhcp Wi-Fi
