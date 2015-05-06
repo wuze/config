@@ -72,12 +72,12 @@ Plugin 'vim-scripts/AutoComplPop'
 Plugin 'vim-scripts/neocomplcache'
 Plugin 'vim-scripts/OmniCppComplete'
 "----------------------------------------------"
-Plugin 'a.vim', {'name': 'avim'}
+Plugin 'a.vim', {'name':'avim'}
 Plugin 'python.vim', {'name':'python'}
 Plugin 'mivok/vimtodo',{'name':'todo'}
 Plugin 'othree/xml.vim',{'name':'xml'}
 Plugin 'taglist.vim', {'name':'taglist'}
-Plugin 'matchit.zip', {'name': 'matchit'}
+Plugin 'matchit.zip', {'name':'matchit'}
 "Plugin 'YankRing.vim',{'name':'YankRing'}
 "Plugin 'closetag.vim', {'name': 'closetag'}
 Plugin 'darkshell/netrw.vim',{'name':'netrw'}
@@ -101,6 +101,7 @@ Plugin 'vim-scripts/bufexplorer.zip',{'name':'bufexplorer'}
 Plugin 'vim-pandoc/vim-pandoc-syntax',{'name':'pandoc-syntax'}
 "Plugin 'vim-scripts/indenthaskell.vim',{'name':'haskell-indent'}
 "Plugin 'vim-scripts/DoxygenToolkit.vim',{'name':'doxygentoolkit'}
+Plugin 'xuhdev/vim-latex-live-preview', {'name':'latex-live-preview'}
 call vundle#end()
 "------------------------------- End of Vundle --------------------------------"
 
