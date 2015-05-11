@@ -16,7 +16,7 @@ alias sb='sudo reboot'
 alias c='clear'
 alias e='exit'
 if [[ `uname` == "Darwin" ]]; then
-	alias ls='ls -G'
+	alias ls='ls -G --color=auto'
 else
 	alias ls='ls --color=auto -G'
 fi
