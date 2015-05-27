@@ -142,7 +142,7 @@ set novisualbell								" No Error Bells In GUI Mode "
 set noerrorbells								" No Error Bells "
 "set paste										" Does not format text when pasting text
 set formatoptions+=tcrmMj
-set textwidth=100
+" set textwidth=100
 set colorcolumn=+0
 
 """""""" Status Line """""""""
