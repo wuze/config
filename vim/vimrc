@@ -42,7 +42,22 @@ endif
 
 "------------------------------------ Vundle ----------------------------------"
 """ Using vundle for managing vim scripts
+
 " git clone https://github.com/gmarik/vundle.git ~/.vim/vundle
+let hasVundle=1
+let vundle_readme=expand($VIMFILES.'/vundle/README.md')
+if !filereadable(vundle_readme)
+	echo "Installing vundle now!!!"
+	echo ""
+	silent !mkdir -p $VIMFILES/vundle
+	if !executable('git')
+		echo "You don't seem to have git installed. Please install git"
+	else
+		silent !git clone https://github.com/gmarik/vundle $VIMFILES/vundle
+		let hasVundle=0
+	endif
+endif
+
 filetype plugin indent off
 set rtp+=$VIMFILES/vundle
 call vundle#rc()
