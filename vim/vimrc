@@ -232,7 +232,11 @@ colorscheme aqua
 """""" Persistent  Undo """"""
 set undofile
 set undolevels=1000
-set undodir=$VIMFILES./undodir
+let $dir=expand($VIMFILES.'/undodir/')
+if !isdirectory($dir)
+	silent !mkdir -p $dir
+endif
+set undodir=$VIMFILES.'/undodir/'
 
 """""""" GUI Settings """"""""
 if has("gui_running")

@@ -7,7 +7,7 @@ PS1="\[\033[1;32m\]\342\224\214($(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31
 
 #########################################
 export PATH=$PATH:$HOME/bin:$HOME/bin/bash
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin
+# export PATH=$PATH:/usr/local/bin:/usr/local/sbin
 # export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/Qt/5.3/clang_64/include
 #export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/Qt/5.3/clang_64/include
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/Qt/5.3/clang_64/lib
@@ -16,7 +16,7 @@ alias sb='sudo reboot'
 alias c='clear'
 alias e='exit'
 if [[ `uname` == "Darwin" ]]; then
-	alias ls='ls -G --color=auto'
+	alias ls='ls --color=auto -G'
 else
 	alias ls='ls --color=auto -G'
 fi
@@ -57,9 +57,6 @@ if [[ `uname` == "Darwin" ]]; then
 	alias hide='defaults write com.apple.finder AppleShowAllFiles -bool false'
 	alias updatedb='sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist'
 ######### Wi-Fi ############
-	if [[ -e ~/.socksrc ]]; then
-		source ~/.socksrc
-	fi
 	function v4off(){
 		sudo networksetup -setv4off Wi-Fi
 		sudo networksetup -setdnsservers Wi-Fi 2001:4860:4860::8888 8.8.8.8
@@ -82,13 +79,13 @@ if [[ `uname` == "Darwin" ]]; then
 	### QT 5.4
 	export PATH=$PATH:/usr/local/Qt/5.4/clang_64/bin
 	export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/Qt/5.4/clang_64/lib/pkgconfig
-	### if having python3.4
+	### python3.4
 #	export PATH=/Library/Frameworks/Python.framework/Versions/3.4/bin:$PATH
 	### qtgrace
 	if [[ -d /Applications/QMBF.app/ ]]; then
 		export PATH=$PATH:/Applications/QMBF.app/Contents/MacOS
 	fi
-	### if having cmake.app
+	### cmake.app
 	export PATH=$PATH:/Applications/CMake.app/Contents/bin
 ############################
 fi
