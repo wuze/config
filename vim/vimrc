@@ -209,6 +209,7 @@ set background=dark								" Use a dark background "
 if has("gui_running")
 	colorscheme torte   " good
 else
+	colorscheme aqua
 	"colorscheme darkblue
 	" colorscheme torte
 	"colorscheme metacosm
@@ -227,7 +228,6 @@ endif
 "colorscheme wuye "good
 "colorscheme golden
 "colorscheme molokai
-colorscheme aqua
 
 """""" Persistent  Undo """"""
 set undofile
